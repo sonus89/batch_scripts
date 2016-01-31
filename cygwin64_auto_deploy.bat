@@ -91,6 +91,6 @@ sleep 5
 ::							::
 ::: Appending cygwin binary folder to PATH env var :::::::
 ::							::
-SETX path %path%;%cygwin_path%\bin\
+SETX /S %computername% /U %username% path %path%;%cygwin_path%\bin\
 ::							::
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
