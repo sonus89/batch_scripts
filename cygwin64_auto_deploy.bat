@@ -52,6 +52,9 @@ echo.
 ::::::::::::::: Path vairable for Cygwin64 :::::::::::::::
 ::							::
 set cygwin_path="c:\cygwin64"
+::							::
+:::::::: Appending "bin" folder to "path" env-var ::::::::
+::							::
 SETX path %path%;%cygwin_path%\bin\
 SETX /M path %path%;%cygwin_path%\bin\
 ::							::	
@@ -90,9 +93,5 @@ cd /D  %cygwin_path%
 sleep 5
 ::processing local install				::
 %cygwin_path%\setup-x86_64.exe -q -L -l %cygwin_path% -P wget -P gcc-g++ -P make -P diffutils -P libmpfr-devel -P libgmp-devel -P libmpc-devel
-::							::
-::: Appending cygwin binary folder to PATH env var :::::::
-::							::
-SETX /S %computername% /U %username% path %path%;%cygwin_path%\bin\
 ::							::
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
