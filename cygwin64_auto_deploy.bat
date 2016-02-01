@@ -52,6 +52,8 @@ echo.
 ::::::::::::::: Path vairable for Cygwin64 :::::::::::::::
 ::							::
 set cygwin_path="c:\cygwin64"
+SETX path %path%;%cygwin_path%\bin\
+SETX /M path %path%;%cygwin_path%\bin\
 ::							::	
 ::::::::::::: Checking if folder already exist :::::::::::
 ::							::
