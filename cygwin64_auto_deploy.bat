@@ -1,10 +1,10 @@
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::                                                      ::
-::		Cygwin64 Auto-Deploy Script             ::
-::		Platform: Windows                       ::
-::		Written by Máté Gál                     ::
-::		Date: 2015-Jan-29                       ::
-::		Contact: mate.gal@gmail.com             ::
+::              Cygwin64 Auto-Deploy Script             ::
+::              Platform: Windows                       ::
+::              Written by Máté Gál                     ::
+::              Date: 2015-Jan-29                       ::
+::              Contact: mate.gal@gmail.com             ::
 ::                                                      ::
 :::::::::::::: Configuring command line ::::::::::::::::::
 ::                                                      ::
@@ -45,6 +45,7 @@ if '%errorlevel%' NEQ '0' (
 ::                                                      ::
 ::                                                      ::
 :::::::::::::::::::: Welcome text ::::::::::::::::::::::::
+::                                                      ::
 echo.
 echo 	Welcome to Auto-Deploy Cygwin64!			
 echo.													
@@ -76,13 +77,13 @@ bitsadmin /transfer Download_Cygwin_Setup http://cygwin.com/setup-x86_64.exe %cy
 ::::::::::::::::::: Installation process :::::::::::::::::
 ::                                                      ::
 cls
-echo	Installing Cygwin64 basic packages to %cygwin_path%
+echo	Deploying Cygwin64 basic packages to %cygwin_path%
 timeout 5
 ::                                                      ::
 :::::::::::::::: Changing working directory ::::::::::::::
 cd /D  %cygwin_path%
 ::                                                      ::
-::installing cygwin-base packages                       ::
+::deploying cygwin-base packages                       ::
 ::Ain't nobody need this shit 'cause cygsetup installs base packages anyway.. 
 ::%cygwin_path%\setup-x86_64.exe -q -D -n -B -s http://cygwin.mirror.constant.com -C base 
 ::                                                      ::
