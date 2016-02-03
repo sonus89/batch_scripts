@@ -18,7 +18,9 @@
 IF '%PROCESSOR_ARCHITECTURE%' EQU 'amd64' (
    >nul 2>&1 "%SYSTEMROOT%\SysWOW64\icacls.exe" "%SYSTEMROOT%\SysWOW64\config"
  ) ELSE (
-   >nul 2>&1 "%SYSTEMROOT%\system32\icacls.exe" "%SYSTEMROOT%\system32\config"
+   echo Error! Your CPU architecture is not x64!
+   sleep 5
+   exit
 )
 ::                                                      ::
 :::::::::: Set error flag if no admin rights :::::::::::::
