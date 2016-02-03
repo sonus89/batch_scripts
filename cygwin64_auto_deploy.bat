@@ -1,11 +1,11 @@
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::                                                      ::
-::		Cygwin64 Auto-Deploy Script		::
-::		Platform: Windows			::
-::		Written by Máté Gál			::
-::		Date: 2015-Jan-29			::
-::		Contact: mate.gal@gmail.com		::
-::							::
+::		Cygwin64 Auto-Deploy Script             ::
+::		Platform: Windows                       ::
+::		Written by Máté Gál                     ::
+::		Date: 2015-Jan-29                       ::
+::		Contact: mate.gal@gmail.com             ::
+::                                                      ::
 :::::::::::::: Configuring command line ::::::::::::::::::
 ::                                                      ::
 	color 0a										
@@ -82,7 +82,7 @@ timeout 5
 :::::::::::::::: Changing working directory ::::::::::::::
 cd /D  %cygwin_path%
 ::                                                      ::
-::installing cygwin-base packages
+::installing cygwin-base packages                       ::
 ::Ain't nobody need this shit 'cause cygsetup installs base packages anyway.. 
 ::%cygwin_path%\setup-x86_64.exe -q -D -n -B -s http://cygwin.mirror.constant.com -C base 
 ::                                                      ::
