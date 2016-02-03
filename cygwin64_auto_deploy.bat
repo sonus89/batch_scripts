@@ -18,9 +18,7 @@
 IF '%PROCESSOR_ARCHITECTURE%' EQU 'amd64' (
    >nul 2>&1 "%SYSTEMROOT%\SysWOW64\icacls.exe" "%SYSTEMROOT%\SysWOW64\config"
  ) ELSE (
-   echo Error! Your CPU architecture is not x64!
-   sleep 5
-   exit
+   >nul 2>&1 "%SYSTEMROOT%\system32\icacls.exe" "%SYSTEMROOT%\system32\config"
 )
 ::                                                      ::
 :::::::::: Set error flag if no admin rights :::::::::::::
@@ -56,10 +54,6 @@ echo.
 ::                                                      ::
 set cygwin_path="c:\cygwin64"
 ::                                                      ::
-:::::::: Appending "bin" folder to "path" env-var ::::::::
-::                                                      ::
-SETX /M path %path%;%cygwin_path%\bin\
-::                                                      ::	
 ::::::::::::: Checking if folder already exist :::::::::::
 ::                                                      ::
 IF EXIST %cygwin_path% (
@@ -96,4 +90,8 @@ sleep 5
 ::processing local install				::
 %cygwin_path%\setup-x86_64.exe -q -L -l %cygwin_path% -P wget -P gcc-g++ -P make -P diffutils -P libmpfr-devel -P libgmp-devel -P libmpc-devel
 ::                                                      ::
+:::::::: Appending "bin" folder to "path" env-var ::::::::
+::                                                      ::
+SETX /M path %path%;%cygwin_path%\bin\
+::                                                      ::	
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
