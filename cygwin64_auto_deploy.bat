@@ -55,7 +55,6 @@ set cygwin_path="c:\cygwin64"
 ::							::
 :::::::: Appending "bin" folder to "path" env-var ::::::::
 ::							::
-SETX path %path%;%cygwin_path%\bin\
 SETX /M path %path%;%cygwin_path%\bin\
 ::							::	
 ::::::::::::: Checking if folder already exist :::::::::::
