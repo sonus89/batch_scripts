@@ -92,6 +92,6 @@ sleep 5
 ::                                                      ::
 :::::::: Appending "bin" folder to "path" env-var ::::::::
 ::                                                      ::
-SETX /M path %path%;%cygwin_path%\bin\
+SETX /M path "%path%;%cygwin_path%\bin\"
 ::                                                      ::	
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
