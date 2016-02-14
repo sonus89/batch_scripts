@@ -1,7 +1,7 @@
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::                                                      ::
 ::              Cygwin64 Auto-Deploy Script             ::
-::              Platform: Windows                       ::
+::              Platform: Windows 7 / 8 / 10            ::
 ::              Written by Máté Gál                     ::
 ::              Date: 2015-Jan-29                       ::
 ::              Contact: mate.gal@gmail.com             ::
