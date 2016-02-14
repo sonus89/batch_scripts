@@ -1,7 +1,7 @@
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::                                                      ::
 ::              Cygwin64 Auto-Deploy Script             ::
-::              Platform: Windows 7 / 8 / 10            ::
+::              Platform: Windows                       ::
 ::              Written by Máté Gál                     ::
 ::              Date: 2015-Jan-29                       ::
 ::              Contact: mate.gal@gmail.com             ::
@@ -33,7 +33,6 @@ if '%errorlevel%' NEQ '0' (
     echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
     set params = %*:"=""
     echo UAC.ShellExecute "cmd.exe", "/c ""%~s0"" %params%", "", "runas", 1 >> "%temp%\getadmin.vbs"
-
     "%temp%\getadmin.vbs"
     del "%temp%\getadmin.vbs"
     exit /B
@@ -84,14 +83,33 @@ cd /D  %cygwin_path%
 ::%cygwin_path%\setup-x86_64.exe -q -D -n -B -s http://cygwin.mirror.constant.com -C base 
 ::                                                      ::
 ::installing gcc,wget...etc. packages
-%cygwin_path%\setup-x86_64.exe -q -R %cygwin_path% -D -n -s http://cygwin.mirror.constant.com -P wget -P gcc-g++ -P make -P diffutils -P libmpfr-devel -P libgmp-devel -P libmpc-devel
+%cygwin_path%\setup-x86_64.exe -q -R %cygwin_path% -D -n -s http://cygwin.mirror.constant.com -P wget -P gcc-g++ -P unzip -P make -P diffutils -P libmpfr-devel -P libgmp-devel -P libmpc-devel
 ::                                                      ::
 sleep 5
 ::processing local install				::
-%cygwin_path%\setup-x86_64.exe -q -L -l %cygwin_path% -P wget -P gcc-g++ -P make -P diffutils -P libmpfr-devel -P libgmp-devel -P libmpc-devel
+%cygwin_path%\setup-x86_64.exe -q -L -l %cygwin_path% -P wget -P gcc-g++ -P make -P unzip -P diffutils -P libmpfr-devel -P libgmp-devel -P libmpc-devel
 ::                                                      ::
 :::::::: Appending "bin" folder to "path" env-var ::::::::
 ::                                                      ::
 SETX /M path "%path%;%cygwin_path%\bin\"
 ::                                                      ::	
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::                                                      ::
+::                                                      ::
+::::::::::::: Downloading ARM-NONE-EABI-GCC ::::::::::::::
+::                                                      ::
+cls 
+echo	Downloading ARM-NONE-EABI-GCC to %cygwin_path%
+timeout 3
+wget -O %cygwin_path%\gcc-arm-none-eabi.zip -P %cygwin_path% https://launchpadlibrarian.net/231143489/gcc-arm-none-eabi-5_2-2015q4-20151219-win32.zip 
+::                                                      ::
+:::::::::::::: Deploying ARM-NONE-EABI-GCC :::::::::::::::
+::       
+echo.
+echo.
+echo.
+echo	Deploying ARM-NONE-EABI-GCC to %cygwin_path%
+timeout 3
+unzip -q %cygwin_path%\gcc-arm-none-eabi.zip            
+::                                                      ::
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
