@@ -51,7 +51,7 @@ echo.
 ::                                                      ::
 ::::::::::::::: Path vairable for Cygwin64 :::::::::::::::
 ::                                                      ::
-set cygwin_path="c:\cygwin64"
+set cygwin_path=c:\cygwin64\
 ::                                                      ::
 ::::::::::::: Checking if folder already exist :::::::::::
 ::                                                      ::
@@ -96,6 +96,10 @@ SETX /M path "%path%;%cygwin_path%\bin\"
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::                                                      ::
 ::                                                      ::
+::::::::::::::: Path vairable for Cygwin64 :::::::::::::::
+::                                                      ::
+set cygwin_path=c:\cygwin64\
+::                                                      ::
 ::::::::::::: Downloading ARM-NONE-EABI-GCC ::::::::::::::
 ::                                                      ::
 cls 
@@ -104,12 +108,11 @@ timeout 3
 wget -O %cygwin_path%\gcc-arm-none-eabi.zip -P %cygwin_path% https://launchpadlibrarian.net/231143489/gcc-arm-none-eabi-5_2-2015q4-20151219-win32.zip 
 ::                                                      ::
 :::::::::::::: Deploying ARM-NONE-EABI-GCC :::::::::::::::
-::       
-echo.
-echo.
-echo.
+::                                                      ::
+cls
 echo	Deploying ARM-NONE-EABI-GCC to %cygwin_path%
 timeout 3
-unzip -q %cygwin_path%\gcc-arm-none-eabi.zip            
+unzip %cygwin_path%\gcc-arm-none-eabi.zip            
+del %cygwin_path%\gcc-arm-none-eabi.zip            
 ::                                                      ::
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
