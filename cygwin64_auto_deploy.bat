@@ -3,7 +3,7 @@
 ::              Cygwin64 Auto-Deploy Script             ::
 ::              Platform: Windows                       ::
 ::              Written by Máté Gál                     ::
-::              Date: 2015-Jan-29                       ::
+::              Date: 2016-Jan-29                       ::
 ::              Contact: mate.gal@gmail.com             ::
 ::                                                      ::
 :::::::::::::: Configuring command line ::::::::::::::::::
